@@ -1,9 +1,12 @@
 package com.symphony;
 
+import lombok.Getter;
+
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
+@Getter
 public class ConfigurationLoader {
     private final String folderPath;
     private final Map<String, String> columnMapping;
@@ -48,13 +51,5 @@ public class ConfigurationLoader {
                 }
             }
         }
-    }
-
-    public Map<String, String> getColumnMapping() {
-        return columnMapping;
-    }
-
-    public Map<String, String> getIdentifierMapping() {
-        return identifierMapping;
     }
 }

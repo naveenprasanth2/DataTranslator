@@ -1,18 +1,16 @@
 package com.symphony;
 
+import lombok.extern.log4j.Log4j2;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import java.io.IOException;
-import java.nio.file.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.stream.Collectors;
-
+@Log4j2
 public class Translator {
+
     private final String folderPath;
     private final ConfigurationLoader configuration;
     private final Statistics statistics = new Statistics();
@@ -22,15 +20,18 @@ public class Translator {
         this.configuration = new ConfigurationLoader(folderPath);
     }
 
-    public void process() throws IOException, InterruptedException, ExecutionException {
+    public void process() throws IOException {
         configuration.load();
 
-        List<Path> dataFiles = Files.list(Paths.get(folderPath))
-                .filter(path -> path.getFileName().toString().startsWith("dataFile") && path.toString().endsWith(".tsv"))
-                .collect(Collectors.toList());
+        List<Path> dataFiles;
+        try (Stream<Path> paths = Files.list(Paths.get(folderPath))) {
+            dataFiles = paths
+                    .filter(path -> path.getFileName().toString().startsWith("dataFile") && path.toString().endsWith(".tsv"))
+                    .toList();
+        }
 
         if (dataFiles.isEmpty()) {
-            System.err.println("No data files found in the specified folder.");
+            log.error("No data files found in the specified folder.");
             return;
         }
 
@@ -48,8 +49,8 @@ public class Translator {
             for (Future<Void> future : futures) {
                 future.get();
             }
-
-            executorService.shutdown();
+        } catch (Exception e) {
+            log.error("An error occurred while processing data files", e);
         }
 
         // Generate statistics
@@ -57,9 +58,9 @@ public class Translator {
     }
 
     private void generateStatistics() {
-        System.out.println("Files processed successfully: " + statistics.getProcessedFiles());
-        System.out.println("Files failed: " + statistics.getFailedFiles());
-        System.out.println("Total rows: " + statistics.getTotalRows());
-        System.out.println("Processed rows: " + statistics.getProcessedRows());
+        log.info("Files processed successfully: {}", statistics.getProcessedFiles());
+        log.info("Files failed: {}", statistics.getFailedFiles());
+        log.info("Total rows: {}", statistics.getTotalRows());
+        log.info("Processed rows: {}", statistics.getProcessedRows());
     }
 }

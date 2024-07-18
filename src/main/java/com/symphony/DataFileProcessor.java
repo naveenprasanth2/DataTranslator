@@ -1,5 +1,8 @@
 package com.symphony;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
@@ -7,6 +10,7 @@ import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 
 public class DataFileProcessor implements Callable<Void> {
+    private static final Logger log = LoggerFactory.getLogger(DataFileProcessor.class);
     private final Path dataFile;
     private final ConfigurationLoader configuration;
     private final Statistics statistics;
@@ -34,7 +38,7 @@ public class DataFileProcessor implements Callable<Void> {
             List<Integer> columnsToExtract = configuration.getColumnMapping().keySet().stream()
                     .map(headerIndexMap::get)
                     .filter(Objects::nonNull)
-                    .collect(Collectors.toList());
+                    .toList();
 
             Path outputFile = Paths.get(dataFile.getParent().toString(), "output" + dataFile.getFileName().toString().replace("dataFile", ""));
             try (BufferedWriter writer = Files.newBufferedWriter(outputFile)) {
@@ -43,7 +47,7 @@ public class DataFileProcessor implements Callable<Void> {
                 String line;
                 while ((line = reader.readLine()) != null) {
                     List<String> values = Arrays.asList(line.split("\t"));
-                    String identifier = values.get(0);
+                    String identifier = values.getFirst();
                     if (configuration.getIdentifierMapping().containsKey(identifier)) {
                         writeOutputRow(writer, values, columnsToExtract);
                         statistics.incrementProcessedRows();
@@ -52,7 +56,7 @@ public class DataFileProcessor implements Callable<Void> {
                 }
             }
         } catch (IOException e) {
-            System.err.println("Failed to process file: " + dataFile.getFileName() + " - " + e.getMessage());
+            log.error("Failed to process file: {} - {}", dataFile.getFileName(), e.getMessage());
             statistics.incrementFailedFiles();
         }
         return null;
@@ -66,7 +70,7 @@ public class DataFileProcessor implements Callable<Void> {
     }
 
     private void writeOutputRow(BufferedWriter writer, List<String> values, List<Integer> columnsToExtract) throws IOException {
-        List<String> outputValues = columnsToExtract.stream().map(values::get).collect(Collectors.toList());
+        List<String> outputValues = columnsToExtract.stream().map(values::get).toList();
         writer.write(String.join("\t", outputValues));
         writer.newLine();
     }
