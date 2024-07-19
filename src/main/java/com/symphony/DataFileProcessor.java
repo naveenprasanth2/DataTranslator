@@ -6,8 +6,6 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.concurrent.Callable;
-import java.util.stream.Collectors;
-
 @Log4j2
 public class DataFileProcessor implements Callable<Void> {
     private final Path dataFile;
@@ -70,7 +68,7 @@ public class DataFileProcessor implements Callable<Void> {
     }
 
     private void writeOutputRow(BufferedWriter writer, List<String> values, List<Integer> columnsToExtract) throws IOException {
-        List<String> outputValues = columnsToExtract.stream().map(values::get).toList();
+        List<String> outputValues = columnsToExtract.stream().parallel().map(values::get).toList();
         writer.write(String.join("\t", outputValues));
         writer.newLine();
     }

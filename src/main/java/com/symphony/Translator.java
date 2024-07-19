@@ -78,6 +78,7 @@ public class Translator {
 
     private List<Integer> findMissingFiles(List<Path> dataFiles) {
         List<Integer> fileNumbers = dataFiles.stream()
+                .parallel()
                 .map(this::extractFileNumber)
                 .filter(number -> number != -1)
                 .sorted()
