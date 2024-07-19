@@ -17,6 +17,9 @@ This is a Java application that reads and translates data files based on configu
    ```sh
    cd DataTranslator
 
+3. Build the project using Maven:
+   ```sh
+   mvn clean install
 
 ### Key Points
 - Java 21: Utilizes Java 21's virtual threads to handle multiple file processing tasks concurrently, improving efficiency and performance.
