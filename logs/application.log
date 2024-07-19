@@ -80,3 +80,7 @@ java.lang.NumberFormatException: For input string: "dataFile0.tsv"
 2024-07-19 11:09:58.449 [main] INFO  com.symphony.Translator - Files failed: 0
 2024-07-19 11:09:58.449 [main] INFO  com.symphony.Translator - Total rows: 6
 2024-07-19 11:09:58.449 [main] INFO  com.symphony.Translator - Processed rows: 3
+2024-07-19 11:12:25.227 [main] INFO  com.symphony.Translator - Files processed successfully: 2
+2024-07-19 11:12:25.228 [main] INFO  com.symphony.Translator - Files failed: 0
+2024-07-19 11:12:25.228 [main] INFO  com.symphony.Translator - Total rows: 6
+2024-07-19 11:12:25.228 [main] INFO  com.symphony.Translator - Processed rows: 3

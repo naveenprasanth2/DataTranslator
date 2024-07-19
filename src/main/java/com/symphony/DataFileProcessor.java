@@ -1,7 +1,6 @@
 package com.symphony;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.log4j.Log4j2;
 
 import java.io.*;
 import java.nio.file.*;
@@ -9,8 +8,8 @@ import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 
+@Log4j2
 public class DataFileProcessor implements Callable<Void> {
-    private static final Logger log = LoggerFactory.getLogger(DataFileProcessor.class);
     private final Path dataFile;
     private final ConfigurationLoader configuration;
     private final Statistics statistics;
@@ -54,9 +53,10 @@ public class DataFileProcessor implements Callable<Void> {
                     }
                     statistics.incrementTotalRows();
                 }
+                statistics.incrementProcessedFiles(); // Increment successfully processed files here
             }
         } catch (IOException e) {
-            log.error("Failed to process file: {} - {}", dataFile.getFileName(), e.getMessage());
+            log.error("Failed to process file: {}", dataFile.getFileName(), e);
             statistics.incrementFailedFiles();
         }
         return null;
