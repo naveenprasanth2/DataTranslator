@@ -25,21 +25,15 @@ public class ConfigurationLoader {
 
     private void loadColumnMapping() throws IOException {
         Path columnMappingFile = Paths.get(folderPath, "column_mapping.tsv");
-        FileUtils.checkFileExists(columnMappingFile);
-
-        try (BufferedReader reader = Files.newBufferedReader(columnMappingFile)) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("\t");
-                if (parts.length == 2) {
-                    columnMapping.put(parts[0], parts[1]);
-                }
-            }
-        }
+        checkExists(columnMappingFile, columnMapping);
     }
 
     private void loadIdentifierMapping() throws IOException {
         Path identifierMappingFile = Paths.get(folderPath, "identifier_mapping.tsv");
+        checkExists(identifierMappingFile, identifierMapping);
+    }
+
+    private void checkExists(Path identifierMappingFile, Map<String, String> identifierMapping) throws IOException {
         FileUtils.checkFileExists(identifierMappingFile);
 
         try (BufferedReader reader = Files.newBufferedReader(identifierMappingFile)) {

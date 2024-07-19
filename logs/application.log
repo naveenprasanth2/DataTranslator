@@ -7,3 +7,76 @@
 2024-07-18 19:54:37.981 [main] INFO  com.symphony.Translator - Files failed: 0
 2024-07-18 19:54:37.981 [main] INFO  com.symphony.Translator - Total rows: 6
 2024-07-18 19:54:37.981 [main] INFO  com.symphony.Translator - Processed rows: 3
+2024-07-18 19:58:13.710 [main] INFO  com.symphony.Translator - Files processed successfully: 0
+2024-07-18 19:58:13.712 [main] INFO  com.symphony.Translator - Files failed: 0
+2024-07-18 19:58:13.712 [main] INFO  com.symphony.Translator - Total rows: 6
+2024-07-18 19:58:13.712 [main] INFO  com.symphony.Translator - Processed rows: 3
+2024-07-18 20:03:16.589 [main] INFO  com.symphony.Translator - Files processed successfully: 0
+2024-07-18 20:03:16.591 [main] INFO  com.symphony.Translator - Files failed: 0
+2024-07-18 20:03:16.591 [main] INFO  com.symphony.Translator - Total rows: 6
+2024-07-18 20:03:16.591 [main] INFO  com.symphony.Translator - Processed rows: 3
+2024-07-19 09:02:24.554 [main] INFO  com.symphony.Translator - Files processed successfully: 0
+2024-07-19 09:02:24.556 [main] INFO  com.symphony.Translator - Files failed: 0
+2024-07-19 09:02:24.556 [main] INFO  com.symphony.Translator - Total rows: 6
+2024-07-19 09:02:24.556 [main] INFO  com.symphony.Translator - Processed rows: 3
+2024-07-19 09:02:56.784 [main] INFO  com.symphony.Translator - Files processed successfully: 0
+2024-07-19 09:02:56.786 [main] INFO  com.symphony.Translator - Files failed: 0
+2024-07-19 09:02:56.786 [main] INFO  com.symphony.Translator - Total rows: 6
+2024-07-19 09:02:56.786 [main] INFO  com.symphony.Translator - Processed rows: 3
+2024-07-19 11:05:26.806 [main] INFO  com.symphony.Translator - Files processed successfully: 0
+2024-07-19 11:05:26.807 [main] INFO  com.symphony.Translator - Files failed: 0
+2024-07-19 11:05:26.807 [main] INFO  com.symphony.Translator - Total rows: 6
+2024-07-19 11:05:26.808 [main] INFO  com.symphony.Translator - Processed rows: 3
+2024-07-19 11:08:42.132 [main] ERROR com.symphony.Main - An error occurred during processing
+java.lang.UnsupportedOperationException: null
+	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:142) ~[?:?]
+	at java.base/java.util.ImmutableCollections$AbstractImmutableList.sort(ImmutableCollections.java:263) ~[?:?]
+	at com.symphony.Translator.process(Translator.java:44) ~[classes/:?]
+	at com.symphony.Main.main(Main.java:14) [classes/:?]
+2024-07-19 11:09:07.850 [main] INFO  com.symphony.Translator - Files processed successfully: 0
+2024-07-19 11:09:07.852 [main] INFO  com.symphony.Translator - Files failed: 0
+2024-07-19 11:09:07.852 [main] INFO  com.symphony.Translator - Total rows: 6
+2024-07-19 11:09:07.852 [main] INFO  com.symphony.Translator - Processed rows: 3
+2024-07-19 11:09:18.399 [main] ERROR com.symphony.Main - An error occurred during processing
+java.lang.NumberFormatException: For input string: "dataFile.tsv"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67) ~[?:?]
+	at java.base/java.lang.Integer.parseInt(Integer.java:661) ~[?:?]
+	at java.base/java.lang.Integer.parseInt(Integer.java:777) ~[?:?]
+	at com.symphony.Translator.extractFileNumber(Translator.java:76) ~[classes/:?]
+	at java.base/java.util.Comparator.lambda$comparingInt$7b0bb60$1(Comparator.java:494) ~[?:?]
+	at java.base/java.util.TimSort.countRunAndMakeAscending(TimSort.java:355) ~[?:?]
+	at java.base/java.util.TimSort.sort(TimSort.java:220) ~[?:?]
+	at java.base/java.util.Arrays.sort(Arrays.java:1308) ~[?:?]
+	at java.base/java.util.ArrayList.sort(ArrayList.java:1804) ~[?:?]
+	at com.symphony.Translator.process(Translator.java:44) ~[classes/:?]
+	at com.symphony.Main.main(Main.java:14) [classes/:?]
+2024-07-19 11:09:33.863 [main] ERROR com.symphony.Main - An error occurred during processing
+java.lang.NumberFormatException: For input string: "dataFile0.tsv"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67) ~[?:?]
+	at java.base/java.lang.Integer.parseInt(Integer.java:661) ~[?:?]
+	at java.base/java.lang.Integer.parseInt(Integer.java:777) ~[?:?]
+	at com.symphony.Translator.extractFileNumber(Translator.java:76) ~[classes/:?]
+	at java.base/java.util.Comparator.lambda$comparingInt$7b0bb60$1(Comparator.java:494) ~[?:?]
+	at java.base/java.util.TimSort.countRunAndMakeAscending(TimSort.java:355) ~[?:?]
+	at java.base/java.util.TimSort.sort(TimSort.java:220) ~[?:?]
+	at java.base/java.util.Arrays.sort(Arrays.java:1308) ~[?:?]
+	at java.base/java.util.ArrayList.sort(ArrayList.java:1804) ~[?:?]
+	at com.symphony.Translator.process(Translator.java:44) ~[classes/:?]
+	at com.symphony.Main.main(Main.java:14) [classes/:?]
+2024-07-19 11:09:41.142 [main] ERROR com.symphony.Main - An error occurred during processing
+java.lang.NumberFormatException: For input string: "dataFile0.tsv"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67) ~[?:?]
+	at java.base/java.lang.Integer.parseInt(Integer.java:661) ~[?:?]
+	at java.base/java.lang.Integer.parseInt(Integer.java:777) ~[?:?]
+	at com.symphony.Translator.extractFileNumber(Translator.java:76) ~[classes/:?]
+	at java.base/java.util.Comparator.lambda$comparingInt$7b0bb60$1(Comparator.java:494) ~[?:?]
+	at java.base/java.util.TimSort.countRunAndMakeAscending(TimSort.java:355) ~[?:?]
+	at java.base/java.util.TimSort.sort(TimSort.java:220) ~[?:?]
+	at java.base/java.util.Arrays.sort(Arrays.java:1308) ~[?:?]
+	at java.base/java.util.ArrayList.sort(ArrayList.java:1804) ~[?:?]
+	at com.symphony.Translator.process(Translator.java:44) ~[classes/:?]
+	at com.symphony.Main.main(Main.java:14) [classes/:?]
+2024-07-19 11:09:58.447 [main] INFO  com.symphony.Translator - Files processed successfully: 0
+2024-07-19 11:09:58.449 [main] INFO  com.symphony.Translator - Files failed: 0
+2024-07-19 11:09:58.449 [main] INFO  com.symphony.Translator - Total rows: 6
+2024-07-19 11:09:58.449 [main] INFO  com.symphony.Translator - Processed rows: 3
