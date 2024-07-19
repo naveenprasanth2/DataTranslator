@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.concurrent.Callable;
+
 @Log4j2
 public class DataFileProcessor implements Callable<Void> {
     private final Path dataFile;
@@ -33,6 +34,7 @@ public class DataFileProcessor implements Callable<Void> {
             }
 
             List<Integer> columnsToExtract = configuration.getColumnMapping().keySet().stream()
+                    .parallel()
                     .map(headerIndexMap::get)
                     .filter(Objects::nonNull)
                     .toList();

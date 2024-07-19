@@ -88,3 +88,17 @@ java.lang.NumberFormatException: For input string: "dataFile0.tsv"
 2024-07-19 11:49:12.696 [main] INFO  com.symphony.Translator - Files failed: 0
 2024-07-19 11:49:12.696 [main] INFO  com.symphony.Translator - Total rows: 6
 2024-07-19 11:49:12.696 [main] INFO  com.symphony.Translator - Processed rows: 3
+2024-07-19 12:54:58.353 [main] INFO  com.symphony.Translator - Files processed successfully: 2
+2024-07-19 12:54:58.354 [main] INFO  com.symphony.Translator - Files failed: 0
+2024-07-19 12:54:58.354 [main] INFO  com.symphony.Translator - Total rows: 6
+2024-07-19 12:54:58.354 [main] INFO  com.symphony.Translator - Processed rows: 3
+2024-07-19 13:30:42.793 [main] ERROR com.symphony.Translator - Missing data file: dataFile1.tsv
+2024-07-19 13:30:42.801 [main] INFO  com.symphony.Translator - Files processed successfully: 2
+2024-07-19 13:30:42.801 [main] INFO  com.symphony.Translator - Files failed: 0
+2024-07-19 13:30:42.801 [main] INFO  com.symphony.Translator - Total rows: 6
+2024-07-19 13:30:42.801 [main] INFO  com.symphony.Translator - Processed rows: 3
+2024-07-19 13:31:53.800 [main] ERROR com.symphony.Translator - Missing data file: dataFile1.tsv
+2024-07-19 13:31:53.811 [main] INFO  com.symphony.Translator - Files processed successfully: 2
+2024-07-19 13:31:53.811 [main] INFO  com.symphony.Translator - Files failed: 0
+2024-07-19 13:31:53.811 [main] INFO  com.symphony.Translator - Total rows: 6
+2024-07-19 13:31:53.811 [main] INFO  com.symphony.Translator - Processed rows: 3

@@ -45,10 +45,10 @@ public class Translator {
 
         List<Integer> missingFiles = findMissingFiles(dataFiles);
         if (!missingFiles.isEmpty()) {
-            missingFiles.forEach(missingFile -> System.err.println("Missing data file: dataFile" + missingFile + ".tsv"));
+            missingFiles.forEach(missingFile -> log.error("Missing data file: dataFile{}.tsv", missingFile));
         }
 
-        try (ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())) {
+        try (ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor()) {
             List<Future<Void>> futures = new ArrayList<>();
 
             for (Path dataFile : dataFiles) {

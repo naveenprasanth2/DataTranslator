@@ -23,11 +23,13 @@ public class ConfigurationLoader {
         loadIdentifierMapping();
     }
 
+    //helps in doing the column mapping
     private void loadColumnMapping() throws IOException {
         Path columnMappingFile = Paths.get(folderPath, "column_mapping.tsv");
         checkExists(columnMappingFile, columnMapping);
     }
 
+    //helps in doing the identifier mapping
     private void loadIdentifierMapping() throws IOException {
         Path identifierMappingFile = Paths.get(folderPath, "identifier_mapping.tsv");
         checkExists(identifierMappingFile, identifierMapping);
